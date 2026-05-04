@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthFamily – Chính sách quyền riêng tư</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:   #003EC7;
+      --violet: #620BD3;
+      --bg:     #FAF8FF;
+      --surface: #FFFFFF;
+      --text:   #131B2E;
+      --muted:  #434656;
+      --border: #E2E7FF;
+      --radius: 14px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--violet) 100%);
+      color: #fff;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .logo-icon {
+      width: 52px; height: 52px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+    }
+    .logo-name {
+      font-size: 24px; font-weight: 700; letter-spacing: -0.5px;
+    }
+    header h1 { font-size: clamp(22px, 4vw, 32px); font-weight: 700; margin-bottom: 10px; }
+    header p  { opacity: .8; font-size: 15px; }
+
+    /* ── Nav pills ── */
+    nav {
+      display: flex; justify-content: center; gap: 10px;
+      padding: 20px 24px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      color: var(--blue);
+      transition: all .2s;
+    }
+    nav a:hover, nav a.active {
+      background: var(--blue); color: #fff; border-color: var(--blue);
+    }
+
+    /* ── Content ── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .meta {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 40px;
+      padding: 14px;
+      background: var(--border);
+      border-radius: var(--radius);
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,62,199,.04);
+    }
+
+    .section-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .section-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      background: linear-gradient(135deg, var(--blue)22, var(--violet)22);
+    }
+    h2 { font-size: 17px; font-weight: 700; color: var(--text); }
+    h3 { font-size: 14px; font-weight: 700; color: var(--blue); margin: 16px 0 6px; }
+    p, li { font-size: 15px; color: var(--muted); margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+
+    .highlight {
+      background: linear-gradient(135deg, #EEF2FF, #F3E8FF);
+      border-left: 3px solid var(--blue);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+    .highlight p { color: var(--text); margin: 0; font-weight: 500; }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .contact-card h2 { color: #fff; font-size: 20px; margin-bottom: 8px; }
+    .contact-card p  { color: rgba(255,255,255,.8); margin-bottom: 24px; }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 700; font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: .92; }
+    .btn-white { background: #fff; color: var(--blue); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,.6);
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">💊</div>
+    <span class="logo-name">HealthFamily</span>
+  </div>
+  <h1>Chính sách quyền riêng tư</h1>
+  <p>Chúng tôi cam kết bảo vệ dữ liệu sức khoẻ của gia đình bạn</p>
+</header>
+
+<nav>
+  <a href="index.html" class="active">Quyền riêng tư</a>
+  <a href="support.html">Hỗ trợ</a>
+</nav>
+
+<main>
+  <div class="meta">
+    Cập nhật lần cuối: 04/05/2026 &nbsp;·&nbsp; Áp dụng cho ứng dụng HealthFamily trên iOS
+  </div>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <h2>Tổng quan</h2>
+    </div>
+    <p>HealthFamily ("chúng tôi", "ứng dụng") là ứng dụng quản lý sức khoẻ gia đình dành cho thị trường Việt Nam. Chính sách này giải thích cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn khi sử dụng ứng dụng.</p>
+    <div class="highlight">
+      <p>⚕️ Thông tin y tế trong HealthFamily chỉ được dùng để cung cấp tính năng của ứng dụng. Chúng tôi không bán, không chia sẻ với bên thứ ba vì mục đích quảng cáo.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">📦</div>
+      <h2>Dữ liệu chúng tôi thu thập</h2>
+    </div>
+
+    <h3>Thông tin tài khoản</h3>
+    <ul>
+      <li>Địa chỉ email (dùng để đăng nhập)</li>
+      <li>Tên hiển thị (tuỳ chọn)</li>
+    </ul>
+
+    <h3>Dữ liệu sức khoẻ gia đình</h3>
+    <ul>
+      <li>Hồ sơ y tế của từng thành viên: tên, ngày sinh, nhóm máu, tiền sử bệnh</li>
+      <li>Đơn thuốc và lịch uống thuốc</li>
+      <li>Kết quả xét nghiệm, phiếu khám bệnh (ảnh/file bạn chủ động tải lên)</li>
+      <li>Lịch sử hỏi đáp với trợ lý AI Chip</li>
+    </ul>
+
+    <h3>Dữ liệu kỹ thuật</h3>
+    <ul>
+      <li>Push notification token (để gửi nhắc nhở uống thuốc)</li>
+      <li>Thông tin phiên làm việc (session token — tự động xoá khi đăng xuất)</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <h2>Cách chúng tôi sử dụng dữ liệu</h2>
+    </div>
+    <ul>
+      <li><strong>Cung cấp tính năng:</strong> nhắc uống thuốc, theo dõi điều trị, tổng quan sức khoẻ gia đình</li>
+      <li><strong>Trợ lý AI Chip:</strong> câu trả lời cá nhân hoá dựa trên hồ sơ gia đình của bạn</li>
+      <li><strong>Gửi thông báo:</strong> nhắc uống thuốc đúng giờ theo lịch bạn đặt</li>
+      <li><strong>Cải thiện ứng dụng:</strong> phân tích lỗi ẩn danh qua Sentry (không chứa PHI)</li>
+    </ul>
+    <div class="highlight">
+      <p>🤖 AI Chip dùng Gemini 2.5 Flash (Google). Câu hỏi của bạn được gửi đến Google API để xử lý. Google không dùng dữ liệu này để huấn luyện model — xem <a href="https://ai.google.dev/terms" style="color:var(--blue)">điều khoản Google AI</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2>Bảo mật dữ liệu</h2>
+    </div>
+    <ul>
+      <li><strong>Mã hoá truyền tải:</strong> HTTPS/TLS cho mọi kết nối</li>
+      <li><strong>Mã hoá lưu trữ:</strong> PostgreSQL với Row Level Security (RLS) — mỗi gia đình chỉ thấy data của mình</li>
+      <li><strong>Xác thực:</strong> Supabase Auth với JWT token, không lưu mật khẩu dạng plain text</li>
+      <li><strong>Infrastructure:</strong> Supabase (Singapore region) + Railway — tuân thủ SOC 2</li>
+      <li><strong>Không quảng cáo:</strong> chúng tôi không tích hợp bất kỳ SDK quảng cáo nào</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🌍</div>
+      <h2>Chia sẻ dữ liệu</h2>
+    </div>
+    <p>Chúng tôi <strong>không bán</strong> dữ liệu của bạn. Dữ liệu chỉ được chia sẻ với:</p>
+    <ul>
+      <li><strong>Supabase Inc.</strong> — lưu trữ cơ sở dữ liệu và xác thực</li>
+      <li><strong>Google (Gemini API)</strong> — xử lý câu hỏi AI (ẩn danh hoá tối đa)</li>
+      <li><strong>Railway</strong> — hosting API server</li>
+      <li><strong>Sentry</strong> — theo dõi lỗi kỹ thuật (không chứa PHI)</li>
+      <li><strong>Cơ quan pháp luật</strong> — nếu có yêu cầu hợp lệ theo pháp luật Việt Nam</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <h2>Quyền của bạn</h2>
+    </div>
+    <ul>
+      <li><strong>Truy cập:</strong> xem toàn bộ dữ liệu của bạn trong ứng dụng bất kỳ lúc nào</li>
+      <li><strong>Chỉnh sửa:</strong> cập nhật hồ sơ và thông tin y tế trong ứng dụng</li>
+      <li><strong>Xoá:</strong> Cài đặt → Tài khoản → Xoá tài khoản (xử lý trong 30 ngày)</li>
+      <li><strong>Xuất:</strong> liên hệ chúng tôi để nhận bản sao dữ liệu</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">👶</div>
+      <h2>Trẻ em</h2>
+    </div>
+    <p>HealthFamily được xếp hạng 4+ trên App Store. Ứng dụng cho phép người lớn quản lý hồ sơ y tế của trẻ em trong gia đình. Trẻ em không trực tiếp tạo tài khoản — chỉ người lớn (phụ huynh/người giám hộ) mới đăng ký và quản lý dữ liệu.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🔄</div>
+      <h2>Thay đổi chính sách</h2>
+    </div>
+    <p>Khi chính sách thay đổi, chúng tôi sẽ thông báo qua email hoặc thông báo trong ứng dụng ít nhất 7 ngày trước khi có hiệu lực. Tiếp tục sử dụng ứng dụng sau thời điểm đó đồng nghĩa với việc bạn chấp nhận chính sách mới.</p>
+  </section>
+
+  <div class="contact-card">
+    <h2>Câu hỏi về quyền riêng tư?</h2>
+    <p>Chúng tôi phản hồi trong vòng 48 giờ làm việc</p>
+    <a href="support.html" class="btn btn-white">Gửi yêu cầu hỗ trợ</a>
+    <a href="mailto:privacy@healthfamily.app" class="btn btn-outline">Email trực tiếp</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 HealthFamily · <a href="index.html">Quyền riêng tư</a> · <a href="support.html">Hỗ trợ</a></p>
+  <p style="margin-top:6px">Ứng dụng dành cho thị trường Việt Nam</p>
+</footer>
+
+</body>
+</html>

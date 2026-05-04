@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthFamily – Hỗ trợ</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:#003EC7; --violet:#620BD3;
+      --bg:#FAF8FF; --surface:#FFFFFF;
+      --text:#131B2E; --muted:#434656; --border:#E2E7FF; --radius:14px;
+    }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+
+    header { background:linear-gradient(135deg,var(--blue) 0%,var(--violet) 100%); color:#fff; padding:60px 24px 48px; text-align:center; }
+    .logo { display:inline-flex; align-items:center; gap:12px; margin-bottom:20px; }
+    .logo-icon { width:52px; height:52px; background:rgba(255,255,255,.2); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; }
+    .logo-name { font-size:24px; font-weight:700; }
+    header h1 { font-size:clamp(22px,4vw,32px); font-weight:700; margin-bottom:10px; }
+    header p  { opacity:.8; font-size:15px; }
+
+    nav { display:flex; justify-content:center; gap:10px; padding:20px 24px; flex-wrap:wrap; }
+    nav a { padding:8px 20px; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none; border:1.5px solid var(--border); color:var(--blue); transition:all .2s; }
+    nav a:hover, nav a.active { background:var(--blue); color:#fff; border-color:var(--blue); }
+
+    main { max-width:800px; margin:0 auto; padding:0 24px 80px; }
+
+    /* FAQ cards */
+    .faq-grid { display:grid; gap:14px; margin-bottom:32px; }
+    .faq-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px 26px; box-shadow:0 2px 12px rgba(0,62,199,.04); cursor:pointer; }
+    .faq-card summary { font-weight:700; font-size:15px; color:var(--text); list-style:none; display:flex; justify-content:space-between; align-items:center; }
+    .faq-card summary::after { content:'＋'; color:var(--blue); font-size:18px; transition:.2s; }
+    .faq-card[open] summary::after { content:'－'; }
+    .faq-card p { font-size:14px; color:var(--muted); margin-top:12px; }
+
+    /* Quick links */
+    .quick-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-bottom:32px; }
+    .ql-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; text-align:center; text-decoration:none; transition:transform .15s, box-shadow .15s; }
+    .ql-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,62,199,.1); }
+    .ql-icon { font-size:28px; margin-bottom:10px; }
+    .ql-label { font-size:14px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .ql-desc  { font-size:13px; color:var(--muted); }
+
+    /* Form embed */
+    .form-wrap {
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 2px 12px rgba(0,62,199,.04);
+      margin-bottom:20px;
+    }
+    .form-header { background:linear-gradient(135deg,var(--blue),var(--violet)); padding:22px 28px; color:#fff; }
+    .form-header h2 { font-size:18px; font-weight:700; margin-bottom:4px; }
+    .form-header p  { font-size:14px; opacity:.85; }
+    iframe { width:100%; height:900px; border:none; display:block; }
+
+    h2.section-title { font-size:18px; font-weight:700; margin:32px 0 16px; }
+
+    footer { text-align:center; padding:32px 24px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
+    footer a { color:var(--blue); text-decoration:none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">💊</div>
+    <span class="logo-name">HealthFamily</span>
+  </div>
+  <h1>Trung tâm hỗ trợ</h1>
+  <p>Chúng tôi phản hồi trong vòng 48 giờ làm việc</p>
+</header>
+
+<nav>
+  <a href="index.html">Quyền riêng tư</a>
+  <a href="support.html" class="active">Hỗ trợ</a>
+</nav>
+
+<main>
+
+  <h2 class="section-title">Câu hỏi thường gặp</h2>
+  <div class="faq-grid">
+    <details class="faq-card">
+      <summary>Làm sao để thêm thành viên gia đình?</summary>
+      <p>Mở tab Tổng quan → nhấn nút "+" bên cạnh danh sách thành viên → điền tên và thông tin cơ bản. Mỗi gia đình có thể thêm tối đa 6 thành viên.</p>
+    </details>
+    <details class="faq-card">
+      <summary>Scan đơn thuốc không nhận diện được chữ viết tay?</summary>
+      <p>Chụp ảnh rõ nét, đủ ánh sáng, giữ thẳng tờ đơn. Chữ in từ bệnh viện/phòng khám cho kết quả tốt nhất. Với chữ viết tay khó đọc, bạn có thể chỉnh sửa thủ công sau khi AI đề xuất.</p>
+    </details>
+    <details class="faq-card">
+      <summary>Làm sao bật/tắt thông báo nhắc thuốc?</summary>
+      <p>Vào Cài đặt iPhone → HealthFamily → Thông báo → bật/tắt theo ý muốn. Trong app, bạn cũng có thể chỉnh giờ nhắc từng loại thuốc trong màn hình chi tiết điều trị.</p>
+    </details>
+    <details class="faq-card">
+      <summary>Trợ lý Chip AI có lưu lịch sử hỏi đáp không?</summary>
+      <p>Có — lịch sử chat được lưu để Chip hiểu ngữ cảnh gia đình bạn tốt hơn. Bạn có thể xoá lịch sử chat bất kỳ lúc nào trong phần cài đặt.</p>
+    </details>
+    <details class="faq-card">
+      <summary>Làm sao xoá tài khoản và toàn bộ dữ liệu?</summary>
+      <p>Vào Cài đặt → Tài khoản → Xoá tài khoản. Dữ liệu sẽ được xoá hoàn toàn trong vòng 30 ngày theo quy định Apple App Store Guideline 5.1.1.</p>
+    </details>
+    <details class="faq-card">
+      <summary>Dữ liệu của tôi có được bảo mật không?</summary>
+      <p>Có — mọi dữ liệu được mã hoá khi truyền tải (HTTPS) và lưu trữ (PostgreSQL với Row Level Security). Chỉ bạn và các thành viên trong gia đình mới truy cập được data. Chúng tôi không bán dữ liệu.</p>
+    </details>
+  </div>
+
+  <h2 class="section-title">Liên hệ nhanh</h2>
+  <div class="quick-links">
+    <a href="mailto:support@healthfamily.app" class="ql-card">
+      <div class="ql-icon">✉️</div>
+      <div class="ql-label">Email hỗ trợ</div>
+      <div class="ql-desc">support@healthfamily.app</div>
+    </a>
+    <a href="mailto:privacy@healthfamily.app" class="ql-card">
+      <div class="ql-icon">🔒</div>
+      <div class="ql-label">Quyền riêng tư</div>
+      <div class="ql-desc">privacy@healthfamily.app</div>
+    </a>
+    <a href="index.html" class="ql-card">
+      <div class="ql-icon">📋</div>
+      <div class="ql-label">Chính sách</div>
+      <div class="ql-desc">Xem chi tiết quyền riêng tư</div>
+    </a>
+  </div>
+
+  <div class="form-wrap">
+    <div class="form-header">
+      <h2>Gửi yêu cầu hỗ trợ</h2>
+      <p>Mô tả vấn đề của bạn — chúng tôi sẽ phản hồi trong 48 giờ</p>
+    </div>
+    <!-- GOOGLE FORM EMBED — thay SRC bằng link form của bạn -->
+    <iframe
+      id="support-form"
+      src="GOOGLE_FORM_EMBED_URL"
+      title="Form hỗ trợ HealthFamily">
+    </iframe>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 HealthFamily · <a href="index.html">Quyền riêng tư</a> · <a href="support.html">Hỗ trợ</a></p>
+</footer>
+
+<script>
+  // Smooth FAQ animation
+  document.querySelectorAll('.faq-card').forEach(el => {
+    el.addEventListener('toggle', () => {
+      if (el.open) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+</script>
+</body>
+</html>
