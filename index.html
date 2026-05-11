@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HealthFamily – Quản lý sức khoẻ gia đình thông minh</title>
   <meta name="description" content="Ứng dụng quản lý sức khoẻ gia đình toàn diện: theo dõi thuốc, hồ sơ y tế, trợ lý AI và thông tin khẩn cấp.">
+  <link rel="canonical" href="https://chiphoc.com">
+  <meta property="og:title" content="HealthFamily – Quản lý sức khoẻ gia đình thông minh">
+  <meta property="og:description" content="Quản lý thuốc, hồ sơ y tế, lịch khám cho cả gia đình. Trợ lý AI Chip 24/7.">
+  <meta property="og:url" content="https://chiphoc.com">
+  <meta property="og:image" content="https://chiphoc.com/screenshots/overview.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -444,10 +451,12 @@
       width: 220px;
       animation: screenshotFloat 5s ease-in-out infinite;
     }
-    .screenshot-frame:nth-child(2) { animation-delay: .5s; }
-    .screenshot-frame:nth-child(3) { animation-delay: 1s; }
-    .screenshot-frame:nth-child(4) { animation-delay: 1.5s; }
-    .screenshot-frame:nth-child(5) { animation-delay: 2s; }
+    .screenshot-frame:nth-child(2) { animation-delay: .4s; }
+    .screenshot-frame:nth-child(3) { animation-delay: .8s; }
+    .screenshot-frame:nth-child(4) { animation-delay: 1.2s; }
+    .screenshot-frame:nth-child(5) { animation-delay: 1.6s; }
+    .screenshot-frame:nth-child(6) { animation-delay: 2s; }
+    .screenshot-frame:nth-child(7) { animation-delay: 2.4s; }
 
     @keyframes screenshotFloat {
       0%,100% { transform: translateY(0px); }
@@ -946,8 +955,32 @@
 
   <div class="screenshots-container">
     <div class="screenshots-track">
-      <!-- Screenshot 1: Tủ thuốc -->
+      <!-- Screenshot 1: Tổng quan -->
       <div class="screenshot-frame reveal reveal-delay-1">
+        <div class="screenshot-device">
+          <div class="screenshot-wrap">
+            <div class="screenshot-notch"></div>
+            <img src="screenshots/overview.png" alt="Tổng quan gia đình" loading="lazy">
+          </div>
+        </div>
+        <div class="screenshot-label">Tổng quan gia đình</div>
+        <div class="screenshot-label-sub">Chip AI tóm tắt sức khoẻ mỗi ngày</div>
+      </div>
+
+      <!-- Screenshot 2: Sức khoẻ -->
+      <div class="screenshot-frame reveal reveal-delay-2">
+        <div class="screenshot-device">
+          <div class="screenshot-wrap">
+            <div class="screenshot-notch"></div>
+            <img src="screenshots/health.png" alt="Sức khoẻ" loading="lazy">
+          </div>
+        </div>
+        <div class="screenshot-label">Theo dõi sức khoẻ</div>
+        <div class="screenshot-label-sub">BMI, nhịp tim, chiều cao, cân nặng</div>
+      </div>
+
+      <!-- Screenshot 3: Tủ thuốc -->
+      <div class="screenshot-frame reveal reveal-delay-3">
         <div class="screenshot-device">
           <div class="screenshot-wrap">
             <div class="screenshot-notch"></div>
@@ -958,8 +991,8 @@
         <div class="screenshot-label-sub">Quản lý đơn thuốc theo thành viên</div>
       </div>
 
-      <!-- Screenshot 2: Thư viện -->
-      <div class="screenshot-frame reveal reveal-delay-2">
+      <!-- Screenshot 4: Thư viện -->
+      <div class="screenshot-frame reveal reveal-delay-4">
         <div class="screenshot-device">
           <div class="screenshot-wrap">
             <div class="screenshot-notch"></div>
@@ -970,8 +1003,8 @@
         <div class="screenshot-label-sub">Bài viết cá nhân hoá theo hồ sơ</div>
       </div>
 
-      <!-- Screenshot 3: Cài đặt thông báo -->
-      <div class="screenshot-frame reveal reveal-delay-3">
+      <!-- Screenshot 5: Cài đặt thông báo -->
+      <div class="screenshot-frame reveal reveal-delay-1">
         <div class="screenshot-device">
           <div class="screenshot-wrap">
             <div class="screenshot-notch"></div>
@@ -982,8 +1015,8 @@
         <div class="screenshot-label-sub">Tùy chỉnh giờ bữa ăn và nhắc nhở</div>
       </div>
 
-      <!-- Screenshot 4: Notifications -->
-      <div class="screenshot-frame reveal reveal-delay-4">
+      <!-- Screenshot 6: Notifications -->
+      <div class="screenshot-frame reveal reveal-delay-2">
         <div class="screenshot-device">
           <div class="screenshot-wrap">
             <div class="screenshot-notch"></div>
@@ -994,8 +1027,8 @@
         <div class="screenshot-label-sub">Nhắc nhở đúng giờ, đúng thành viên</div>
       </div>
 
-      <!-- Screenshot 5: Menu -->
-      <div class="screenshot-frame reveal reveal-delay-1">
+      <!-- Screenshot 7: Menu -->
+      <div class="screenshot-frame reveal reveal-delay-3">
         <div class="screenshot-device">
           <div class="screenshot-wrap">
             <div class="screenshot-notch"></div>
@@ -1237,7 +1270,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 HealthFamily · Dành cho thị trường Việt Nam</span>
+      <span>© 2026 HealthFamily · <a href="https://chiphoc.com" style="color:rgba(255,255,255,.5);text-decoration:none">chiphoc.com</a></span>
       <span>Made with ❤️ in Vietnam</span>
     </div>
   </div>
