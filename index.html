@@ -448,7 +448,7 @@
     .icon-red    { background: rgba(239,68,68,.1); }
     .icon-dark   { background: rgba(15,23,42,.07); }
 
-    /* ─── SCREENSHOTS SHOWCASE ─── */
+    /* ─── SCREENSHOTS SHOWCASE — card-fan 2.5D ─── */
     .showcase-section {
       background: var(--dark);
       padding: 100px 0 80px;
@@ -458,10 +458,9 @@
     .showcase-section .section-title { color: #fff; }
     .showcase-section .section-desc  { color: rgba(255,255,255,.5); margin: 0 auto; }
 
-    /* Album container — clip x only, let y overflow freely for pop effect */
     .screenshots-container {
       position: relative;
-      overflow-x: clip; /* clips sides but NOT top/bottom */
+      overflow-x: clip;
     }
     .screenshots-container::before,
     .screenshots-container::after {
@@ -471,24 +470,38 @@
     .screenshots-container::after  { right: 0; background: linear-gradient(-90deg, var(--dark) 20%, transparent); }
 
     .screenshots-track {
-      display: flex; gap: 28px;
-      /* top padding = room for the pop-up hover effect */
-      padding: 80px 80px 48px;
-      overflow-x: auto;
-      scrollbar-width: none;
+      display: flex; gap: 24px;
+      padding: 110px 80px 64px;
+      overflow-x: auto; scrollbar-width: none;
       cursor: grab;
       -webkit-overflow-scrolling: touch;
     }
     .screenshots-track:active { cursor: grabbing; }
     .screenshots-track::-webkit-scrollbar { display: none; }
 
+    /* ── Card fan: each frame gets a preset tilt like scattered playing cards ── */
     .screenshot-frame {
       flex-shrink: 0;
-      display: flex; flex-direction: column; align-items: center; gap: 18px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
       position: relative; z-index: 1;
-      /* Trigger stacking context for z-index on hover */
+      transform: rotate(var(--rz)) translateY(var(--ty));
+      transform-origin: bottom center;
+      transition:
+        transform .5s cubic-bezier(.34,1.36,.64,1),
+        filter .35s ease,
+        z-index 0s;
+      will-change: transform;
     }
-    .screenshot-frame:hover { z-index: 20; }
+
+    /* Individual tilt angles — looks like a hand of cards on a dark table */
+    .screenshot-frame:nth-child(1) { --rz: -4deg;   --ty: 12px; }
+    .screenshot-frame:nth-child(2) { --rz:  2.5deg; --ty: -6px; }
+    .screenshot-frame:nth-child(3) { --rz: -2deg;   --ty:  8px; }
+    .screenshot-frame:nth-child(4) { --rz:  3.5deg; --ty: -3px; }
+    .screenshot-frame:nth-child(5) { --rz: -3.5deg; --ty: 14px; }
+    .screenshot-frame:nth-child(6) { --rz:  1.5deg; --ty: -9px; }
+    .screenshot-frame:nth-child(7) { --rz: -1.5deg; --ty:  6px; }
+    .screenshot-frame:nth-child(8) { --rz:  3deg;   --ty: -4px; }
 
     .screenshot-frame img {
       width: 230px;
@@ -496,36 +509,39 @@
       display: block;
       box-shadow:
         0 0 0 1px rgba(255,255,255,.07),
-        0 24px 60px rgba(0,0,0,.65);
-      transition: transform .5s cubic-bezier(.34,1.36,.64,1), box-shadow .5s ease, opacity .3s ease;
-      will-change: transform;
+        0 20px 50px rgba(0,0,0,.7),
+        0 4px 16px rgba(0,0,0,.5);
+      transition: box-shadow .5s ease;
     }
 
-    /* Dim non-hovered siblings when any is hovered */
-    .screenshots-track:hover .screenshot-frame:not(:hover) img {
-      opacity: .55;
-      transform: scale(.97);
+    /* When any card is hovered: dim & lean the others further */
+    .screenshots-track:hover .screenshot-frame:not(:hover) {
+      filter: brightness(.5) saturate(.6);
+      transform: rotate(calc(var(--rz) * 1.5)) translateY(calc(var(--ty) + 10px)) scale(.96);
     }
 
-    /* The hovered one pops forward */
+    /* The hovered card straightens up, lifts forward — card "picked up" from the table */
+    .screenshots-track .screenshot-frame:hover {
+      transform: rotate(0deg) translateY(-32px) scale(1.1);
+      filter: brightness(1.05) saturate(1.15);
+      z-index: 20;
+    }
     .screenshot-frame:hover img {
-      transform: scale(1.18) translateY(-28px);
       box-shadow:
-        0 0 0 1.5px rgba(99,102,241,.6),
-        0 48px 100px rgba(0,0,0,.8),
-        0 16px 40px rgba(37,99,235,.35);
-      opacity: 1 !important;
+        0 0 0 2px rgba(99,102,241,.65),
+        0 48px 100px rgba(0,0,0,.85),
+        0 0 60px rgba(99,102,241,.25);
     }
 
     .screenshot-caption {
       text-align: center;
-      transition: opacity .3s, transform .3s;
+      transition: opacity .3s ease, transform .3s ease;
     }
     .screenshots-track:hover .screenshot-frame:not(:hover) .screenshot-caption {
-      opacity: .4;
+      opacity: .25;
     }
     .screenshot-frame:hover .screenshot-caption {
-      transform: translateY(4px);
+      transform: translateY(6px);
     }
     .screenshot-label     { font-size: 14px; font-weight: 700; color: #fff; }
     .screenshot-label-sub { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; }
