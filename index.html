@@ -670,20 +670,43 @@
 
     /* Emergency screenshot */
     .emg-screenshot-wrap {
-      display: flex; justify-content: center; align-items: center;
+      display: flex; justify-content: center; align-items: center; gap: 16px;
     }
-    .emg-screenshot-wrap img {
-      width: 280px;
-      border-radius: 32px;
+    .emg-phone-slot { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .emg-phone-slot img {
+      width: 200px;
+      border-radius: 28px;
       box-shadow:
         0 0 0 1px rgba(239,68,68,.15),
-        0 32px 80px rgba(239,68,68,.2),
-        0 8px 32px rgba(0,0,0,.15);
+        0 24px 60px rgba(239,68,68,.18),
+        0 8px 24px rgba(0,0,0,.14);
       transition: transform .4s cubic-bezier(.34,1.36,.64,1), box-shadow .4s ease;
     }
-    .emg-screenshot-wrap img:hover {
-      transform: scale(1.04) translateY(-8px);
-      box-shadow: 0 0 0 2px rgba(239,68,68,.3), 0 48px 100px rgba(239,68,68,.3), 0 16px 48px rgba(0,0,0,.2);
+    .emg-phone-slot img:hover {
+      transform: scale(1.05) translateY(-8px);
+      box-shadow: 0 0 0 2px rgba(239,68,68,.3), 0 40px 80px rgba(239,68,68,.25), 0 12px 40px rgba(0,0,0,.2);
+    }
+    .emg-phone-slot.medical img:hover {
+      box-shadow: 0 0 0 2px rgba(29,78,216,.35), 0 40px 80px rgba(29,78,216,.2), 0 12px 40px rgba(0,0,0,.2);
+    }
+    .emg-label-chip {
+      font-size: 11px; font-weight: 700; letter-spacing: .5px; padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .emg-label-red  { background: rgba(239,68,68,.1); color: #EF4444; border: 1px solid rgba(239,68,68,.2); }
+    .emg-label-blue { background: rgba(29,78,216,.1); color: #1D4ED8; border: 1px solid rgba(29,78,216,.2); }
+    .emg-flow-arrow {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: #94A3B8; font-size: 20px; flex-shrink: 0; padding-bottom: 32px;
+    }
+    .emg-flow-arrow span { font-size: 10px; font-weight: 600; color: #CBD5E1; letter-spacing: .4px; text-transform: uppercase; writing-mode: vertical-rl; }
+    @media (max-width: 900px) {
+      .emg-screenshot-wrap { gap: 12px; }
+      .emg-phone-slot img { width: 155px; }
+    }
+    @media (max-width: 640px) {
+      .emg-flow-arrow { display: none; }
+      .emg-phone-slot img { width: 140px; }
     }
 
     /* ─── CTA ─── */
@@ -1214,27 +1237,32 @@
         <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#64748B">
           <span style="color:#EF4444;font-size:18px">✓</span> Tự động cập nhật khi đăng nhập lại
         </div>
-      </div>
-
-      <!-- Medical ID callout -->
-      <div class="reveal reveal-delay-4" style="margin-top:20px; background:linear-gradient(135deg,#EFF6FF,#DBEAFE); border-radius:14px; padding:16px 20px; border-left:4px solid #1D4ED8; display:flex; gap:14px; align-items:flex-start;">
-        <div style="font-size:26px;line-height:1;flex-shrink:0">🔒</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:#1E3A8A;letter-spacing:.4px;margin-bottom:4px">TÍCH HỢP iOS MEDICAL ID</div>
-          <div style="font-size:13px;color:#1D4ED8;line-height:1.6">Hướng dẫn liên kết hồ sơ y tế với <strong>Medical ID</strong> của iPhone — cứu hộ có thể gọi người thân ngay từ <em>màn hình khoá</em> mà không cần mật khẩu.</div>
-          <div style="margin-top:8px;display:flex;align-items:center;gap:6px;font-size:12px;color:#3B82F6">
-            <span style="background:#DBEAFE;border-radius:6px;padding:3px 8px;font-weight:600">Màn khoá</span>
-            <span>›</span>
-            <span style="background:#DBEAFE;border-radius:6px;padding:3px 8px;font-weight:600">Gọi khẩn cấp</span>
-            <span>›</span>
-            <span style="background:#1D4ED8;border-radius:6px;padding:3px 8px;font-weight:600;color:#fff">Medical ID</span>
-          </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#1D4ED8;background:rgba(29,78,216,.06);border-radius:10px;padding:10px 14px;margin-top:4px;border:1px solid rgba(29,78,216,.12)">
+          <span style="font-size:16px;flex-shrink:0">🔒</span>
+          <span>Kết nối với <strong>iOS Medical ID</strong> — cứu hộ gọi người thân ngay từ màn khoá, không cần mật khẩu</span>
         </div>
       </div>
+
     </div>
 
     <div class="emg-screenshot-wrap reveal reveal-delay-2">
-      <img src="screenshots/emergency.png" alt="Màn hình thông tin khẩn cấp" loading="lazy">
+      <!-- App emergency screen -->
+      <div class="emg-phone-slot">
+        <img src="screenshots/emergency.png" alt="Màn hình thông tin khẩn cấp" loading="lazy">
+        <span class="emg-label-chip emg-label-red">Trong app</span>
+      </div>
+
+      <!-- Flow arrow -->
+      <div class="emg-flow-arrow">
+        <span>kết nối</span>
+        <svg width="20" height="36" viewBox="0 0 20 36" fill="none"><path d="M10 0 L10 28 M4 22 L10 30 L16 22" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- iOS Medical ID screen -->
+      <div class="emg-phone-slot medical">
+        <img src="screenshots/medical-id.png" alt="iOS Medical ID — gọi không cần mở khoá" loading="lazy">
+        <span class="emg-label-chip emg-label-blue">iOS Medical ID</span>
+      </div>
     </div>
   </div>
 </section>
