@@ -433,71 +433,62 @@
 
     /* ─── SCREENSHOTS SHOWCASE ─── */
     .showcase-section {
-      background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
-      padding: 100px 0 0; overflow: hidden;
+      background: var(--dark);
+      padding: 100px 32px; overflow: hidden;
     }
-    .showcase-header { text-align: center; padding: 0 32px; margin-bottom: 60px; }
+    .showcase-header { text-align: center; margin-bottom: 60px; }
+    .showcase-section .section-tag { background: rgba(124,58,237,.2); border-color: rgba(124,58,237,.3); color: #a78bfa; }
+    .showcase-section .section-title { color: #fff; }
+    .showcase-section .section-desc  { color: rgba(255,255,255,.55); margin: 0 auto; }
+
+    /* Scrollable strip */
+    .screenshots-container { position: relative; margin: 0 -32px; }
+    .screenshots-container::before,
+    .screenshots-container::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
+    }
+    .screenshots-container::before { left: 0; background: linear-gradient(90deg, var(--dark), transparent); }
+    .screenshots-container::after  { right: 0; background: linear-gradient(-90deg, var(--dark), transparent); }
 
     .screenshots-track {
-      display: flex; gap: 24px; padding: 20px 40px 60px;
+      display: flex; gap: 20px; padding: 10px 60px 20px;
       overflow-x: auto; scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      cursor: grab;
     }
+    .screenshots-track:active { cursor: grabbing; }
     .screenshots-track::-webkit-scrollbar { display: none; }
 
     .screenshot-frame {
-      flex-shrink: 0; scroll-snap-align: start;
-      width: 220px;
-      animation: screenshotFloat 5s ease-in-out infinite;
-    }
-    .screenshot-frame:nth-child(2) { animation-delay: .4s; }
-    .screenshot-frame:nth-child(3) { animation-delay: .8s; }
-    .screenshot-frame:nth-child(4) { animation-delay: 1.2s; }
-    .screenshot-frame:nth-child(5) { animation-delay: 1.6s; }
-    .screenshot-frame:nth-child(6) { animation-delay: 2s; }
-    .screenshot-frame:nth-child(7) { animation-delay: 2.4s; }
-    .screenshot-frame:nth-child(8) { animation-delay: 2.8s; }
-
-    @keyframes screenshotFloat {
-      0%,100% { transform: translateY(0px); }
-      50%      { transform: translateY(-10px); }
+      flex-shrink: 0; scroll-snap-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 16px;
     }
 
-    .screenshot-device {
-      background: #0F172A;
-      border-radius: 36px; padding: 10px;
-      box-shadow: 0 0 0 2px #2a3548, 0 30px 60px rgba(0,0,0,.4);
+    /* Just the image — clean, no fake frame */
+    .screenshot-frame img {
+      width: 180px;
+      border-radius: 28px;
+      display: block;
+      box-shadow:
+        0 2px 0 rgba(255,255,255,.06),
+        0 20px 60px rgba(0,0,0,.6),
+        0 4px 16px rgba(0,0,0,.4);
+      transition: transform .3s, box-shadow .3s;
+      /* Subtle outline to separate from dark bg */
+      outline: 1px solid rgba(255,255,255,.06);
     }
-    .screenshot-device img {
-      width: 100%; border-radius: 28px; display: block;
-      aspect-ratio: 9/19.5; object-fit: cover; object-position: top;
-      background: #F8FAFF;
+    .screenshot-frame:hover img {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 2px 0 rgba(255,255,255,.1), 0 36px 80px rgba(0,0,0,.7), 0 8px 24px rgba(37,99,235,.3);
     }
-    .screenshot-notch {
-      position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
-      width: 80px; height: 24px;
-      background: #0F172A; border-radius: 0 0 14px 14px;
-      z-index: 2;
-    }
-    .screenshot-wrap { position: relative; }
 
+    .screenshot-caption { text-align: center; }
     .screenshot-label {
-      text-align: center; margin-top: 16px;
-      font-size: 13px; font-weight: 600; color: var(--text);
+      font-size: 13px; font-weight: 700; color: #fff;
     }
-    .screenshot-label-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-    /* Gradient fade on sides */
-    .screenshots-container {
-      position: relative;
-    }
-    .screenshots-container::before,
-    .screenshots-container::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
-    }
-    .screenshots-container::before { left: 0; background: linear-gradient(90deg, var(--surface), transparent); }
-    .screenshots-container::after  { right: 0; background: linear-gradient(-90deg, var(--surface), transparent); }
+    .screenshot-label-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 3px; }
 
     /* ─── CHIP AI ─── */
     .chip-section {
@@ -956,100 +947,68 @@
 
   <div class="screenshots-container">
     <div class="screenshots-track">
-      <!-- Screenshot 1: Tổng quan -->
       <div class="screenshot-frame reveal reveal-delay-1">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/overview.png" alt="Tổng quan gia đình" loading="lazy">
-          </div>
+        <img src="screenshots/overview.png" alt="Tổng quan gia đình" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Tổng quan gia đình</div>
+          <div class="screenshot-label-sub">Chip AI tóm tắt sức khoẻ mỗi ngày</div>
         </div>
-        <div class="screenshot-label">Tổng quan gia đình</div>
-        <div class="screenshot-label-sub">Chip AI tóm tắt sức khoẻ mỗi ngày</div>
       </div>
 
-      <!-- Screenshot 2: Sức khoẻ -->
       <div class="screenshot-frame reveal reveal-delay-2">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/health.png" alt="Sức khoẻ" loading="lazy">
-          </div>
+        <img src="screenshots/health.png" alt="Sức khoẻ" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Theo dõi sức khoẻ</div>
+          <div class="screenshot-label-sub">BMI, nhịp tim, chiều cao, cân nặng</div>
         </div>
-        <div class="screenshot-label">Theo dõi sức khoẻ</div>
-        <div class="screenshot-label-sub">BMI, nhịp tim, chiều cao, cân nặng</div>
       </div>
 
-      <!-- Screenshot 3: Chip AI -->
       <div class="screenshot-frame reveal reveal-delay-3">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/chip.png" alt="Trợ lý Chip AI" loading="lazy">
-          </div>
+        <img src="screenshots/chip.png" alt="Trợ lý Chip AI" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Trợ lý Chip AI</div>
+          <div class="screenshot-label-sub">Hỏi đáp sức khoẻ 24/7, hiểu hồ sơ gia đình</div>
         </div>
-        <div class="screenshot-label">Trợ lý Chip AI</div>
-        <div class="screenshot-label-sub">Hỏi đáp sức khoẻ 24/7, hiểu hồ sơ gia đình</div>
       </div>
 
-      <!-- Screenshot 4: Tủ thuốc -->
-      <div class="screenshot-frame reveal reveal-delay-3">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/medicine.png" alt="Tủ thuốc" loading="lazy">
-          </div>
-        </div>
-        <div class="screenshot-label">Tủ thuốc</div>
-        <div class="screenshot-label-sub">Quản lý đơn thuốc theo thành viên</div>
-      </div>
-
-      <!-- Screenshot 4: Thư viện -->
       <div class="screenshot-frame reveal reveal-delay-4">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/library.png" alt="Thư viện kiến thức" loading="lazy">
-          </div>
+        <img src="screenshots/medicine.png" alt="Tủ thuốc" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Tủ thuốc</div>
+          <div class="screenshot-label-sub">Quản lý đơn thuốc theo từng thành viên</div>
         </div>
-        <div class="screenshot-label">Thư viện kiến thức</div>
-        <div class="screenshot-label-sub">Bài viết cá nhân hoá theo hồ sơ</div>
       </div>
 
-      <!-- Screenshot 5: Cài đặt thông báo -->
       <div class="screenshot-frame reveal reveal-delay-1">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/settings.png" alt="Cài đặt thông báo" loading="lazy">
-          </div>
+        <img src="screenshots/library.png" alt="Thư viện kiến thức" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Thư viện kiến thức</div>
+          <div class="screenshot-label-sub">Bài viết cá nhân hoá theo hồ sơ</div>
         </div>
-        <div class="screenshot-label">Thông báo thông minh</div>
-        <div class="screenshot-label-sub">Tùy chỉnh giờ bữa ăn và nhắc nhở</div>
       </div>
 
-      <!-- Screenshot 6: Notifications -->
       <div class="screenshot-frame reveal reveal-delay-2">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/notifications.png" alt="Trung tâm thông báo" loading="lazy">
-          </div>
+        <img src="screenshots/settings.png" alt="Cài đặt thông báo" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Thông báo thông minh</div>
+          <div class="screenshot-label-sub">Tuỳ chỉnh giờ bữa ăn và nhắc nhở</div>
         </div>
-        <div class="screenshot-label">Trung tâm thông báo</div>
-        <div class="screenshot-label-sub">Nhắc nhở đúng giờ, đúng thành viên</div>
       </div>
 
-      <!-- Screenshot 7: Menu -->
       <div class="screenshot-frame reveal reveal-delay-3">
-        <div class="screenshot-device">
-          <div class="screenshot-wrap">
-            <div class="screenshot-notch"></div>
-            <img src="screenshots/menu.png" alt="Menu điều hướng" loading="lazy">
-          </div>
+        <img src="screenshots/notifications.png" alt="Trung tâm thông báo" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Trung tâm thông báo</div>
+          <div class="screenshot-label-sub">Nhắc nhở đúng giờ, đúng thành viên</div>
         </div>
-        <div class="screenshot-label">Điều hướng đầy đủ</div>
-        <div class="screenshot-label-sub">Truy cập nhanh mọi tính năng</div>
+      </div>
+
+      <div class="screenshot-frame reveal reveal-delay-4">
+        <img src="screenshots/menu.png" alt="Menu điều hướng" loading="lazy">
+        <div class="screenshot-caption">
+          <div class="screenshot-label">Điều hướng đầy đủ</div>
+          <div class="screenshot-label-sub">Truy cập nhanh mọi tính năng</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1331,6 +1290,20 @@
       scene.style.transform = `rotateY(${-8 + dx * 7}deg) rotateX(${4 - dy * 5}deg)`
     }, { passive: true })
     document.addEventListener('mouseleave', () => { scene.style.transform = '' })
+  }
+
+  // Drag-to-scroll screenshots track
+  const track = document.querySelector('.screenshots-track')
+  if (track) {
+    let isDown = false, startX, scrollLeft
+    track.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft })
+    track.addEventListener('mouseleave', () => { isDown = false })
+    track.addEventListener('mouseup', () => { isDown = false })
+    track.addEventListener('mousemove', e => {
+      if (!isDown) return
+      e.preventDefault()
+      track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX) * 1.5
+    })
   }
 
   // Feature card tilt
