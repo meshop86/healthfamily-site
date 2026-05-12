@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthFamily – Hỗ trợ</title>
+  <title>Kinship Family – Hỗ trợ</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -90,15 +90,17 @@
 <header>
   <div class="logo">
     <div class="logo-icon">💊</div>
-    <span class="logo-name">HealthFamily</span>
+    <span class="logo-name">Kinship Family</span>
   </div>
   <h1>Trung tâm hỗ trợ</h1>
   <p>Chúng tôi phản hồi trong vòng 48 giờ làm việc</p>
 </header>
 
 <nav>
-  <a href="index.html">Quyền riêng tư</a>
+  <a href="index.html">Trang chủ</a>
+  <a href="privacy.html">Quyền riêng tư</a>
   <a href="support.html" class="active">Hỗ trợ</a>
+  <a href="en/support.html" style="background:var(--blue);color:#fff;border-color:var(--blue);letter-spacing:.5px;font-size:12px">EN</a>
 </nav>
 
 <main>
@@ -115,7 +117,7 @@
     </details>
     <details class="faq-card">
       <summary>Làm sao bật/tắt thông báo nhắc thuốc?</summary>
-      <p>Vào Cài đặt iPhone → HealthFamily → Thông báo → bật/tắt theo ý muốn. Trong app, bạn cũng có thể chỉnh giờ nhắc từng loại thuốc trong màn hình chi tiết điều trị.</p>
+      <p>Vào Cài đặt iPhone → Kinship Family → Thông báo → bật/tắt theo ý muốn. Trong app, bạn cũng có thể chỉnh giờ nhắc từng loại thuốc trong màn hình chi tiết điều trị.</p>
     </details>
     <details class="faq-card">
       <summary>Trợ lý Chip AI có lưu lịch sử hỏi đáp không?</summary>
@@ -192,7 +194,7 @@
 </main>
 
 <footer>
-  <p>© 2026 HealthFamily · <a href="index.html">Quyền riêng tư</a> · <a href="support.html">Hỗ trợ</a></p>
+  <p>© 2026 Kinship Family · <a href="index.html">Quyền riêng tư</a> · <a href="support.html">Hỗ trợ</a></p>
 </footer>
 
 <script>
@@ -216,7 +218,7 @@
       return;
     }
 
-    const subject = encodeURIComponent('[HealthFamily Support] ' + type);
+    const subject = encodeURIComponent('[Kinship Family Support] ' + type);
     const body = encodeURIComponent(
       'Họ tên: ' + name + '\n' +
       'Email: ' + email + '\n' +

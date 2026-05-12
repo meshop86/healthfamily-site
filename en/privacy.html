@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kinship Family – Privacy Policy</title>
+  <link rel="icon" type="image/png" href="../screenshots/icon.png">
+  <link rel="canonical" href="https://chiphoc.com/en/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #2563EB;
+      --blue2:   #003EC7;
+      --violet:  #7C3AED;
+      --violet2: #620BD3;
+      --bg:      #FAF8FF;
+      --surface: #FFFFFF;
+      --text:    #131B2E;
+      --muted:   #434656;
+      --border:  #E2E7FF;
+      --radius:  14px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--blue2) 0%, var(--violet2) 100%);
+      color: #fff;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .logo {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-bottom: 20px; text-decoration: none;
+    }
+    .logo-icon {
+      width: 52px; height: 52px; background: rgba(255,255,255,0.2);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .logo-name { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
+    header h1 { font-size: clamp(22px, 4vw, 32px); font-weight: 700; margin-bottom: 10px; }
+    header p  { opacity: .8; font-size: 15px; }
+
+    nav {
+      display: flex; justify-content: center; gap: 10px;
+      padding: 20px 24px; flex-wrap: wrap;
+    }
+    nav a {
+      padding: 8px 20px; border-radius: 999px; font-size: 14px; font-weight: 600;
+      text-decoration: none; border: 1.5px solid var(--border); color: var(--blue2);
+      transition: all .2s;
+    }
+    nav a:hover, nav a.active { background: var(--blue2); color: #fff; border-color: var(--blue2); }
+
+    .lang-switch {
+      display: flex; justify-content: center; gap: 8px; padding: 0 24px 8px; flex-wrap: wrap;
+    }
+    .lang-switch a {
+      font-size: 12px; font-weight: 700; color: var(--muted); text-decoration: none;
+      padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .lang-switch a.active { color: var(--blue2); border-color: var(--blue2); background: rgba(0,62,199,.05); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; }
+
+    .meta {
+      text-align: center; color: var(--muted); font-size: 13px;
+      margin-bottom: 40px; padding: 14px;
+      background: var(--border); border-radius: var(--radius);
+    }
+
+    section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 32px; margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,62,199,.04);
+    }
+
+    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      background: linear-gradient(135deg, rgba(0,62,199,.1), rgba(98,11,211,.1));
+      flex-shrink: 0;
+    }
+    h2 { font-size: 17px; font-weight: 700; color: var(--text); }
+    h3 { font-size: 14px; font-weight: 700; color: var(--blue2); margin: 16px 0 6px; }
+    p, li { font-size: 15px; color: var(--muted); margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+
+    .highlight {
+      background: linear-gradient(135deg, #EEF2FF, #F3E8FF);
+      border-left: 3px solid var(--blue);
+      border-radius: 8px; padding: 14px 18px; margin: 16px 0;
+    }
+    .highlight p { color: var(--text); margin: 0; font-weight: 500; }
+
+    .contact-card {
+      background: linear-gradient(135deg, var(--blue2), var(--violet2));
+      color: #fff; border-radius: var(--radius); padding: 32px;
+      text-align: center; margin-bottom: 20px;
+    }
+    .contact-card h2 { color: #fff; font-size: 20px; margin-bottom: 8px; }
+    .contact-card p  { color: rgba(255,255,255,.8); margin-bottom: 24px; }
+    .btn {
+      display: inline-block; padding: 12px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: .92; }
+    .btn-white   { background: #fff; color: var(--blue2); }
+    .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,.6); color: #fff; margin-left: 10px; }
+
+    footer {
+      text-align: center; padding: 32px 24px;
+      color: var(--muted); font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--blue2); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      section { padding: 20px 18px; }
+      .btn-outline { margin-left: 0; margin-top: 10px; display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <img src="../screenshots/icon.png" alt="Kinship Family" onerror="this.outerHTML='<span style=font-size:26px>&#128138;</span>'">
+    </div>
+    <span class="logo-name">Kinship Family</span>
+  </a>
+  <h1>Privacy Policy</h1>
+  <p>We are committed to protecting your family's health data</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="privacy.html" class="active">Privacy</a>
+  <a href="support.html">Support</a>
+</nav>
+
+<div class="lang-switch">
+  <a href="../privacy.html">VI</a>
+  <a href="privacy.html" class="active">EN</a>
+</div>
+
+<main>
+  <div class="meta">
+    Last updated: 05/04/2026 &nbsp;&middot;&nbsp; Applies to the Kinship Family app on iOS and Android
+  </div>
+
+  <!-- 1. Overview -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128203;</div>
+      <h2>Overview</h2>
+    </div>
+    <p>Kinship Family ("we", "us", "the app") is a family health management application. This policy explains how we collect, use, and protect your information when you use the app.</p>
+    <div class="highlight">
+      <p>Medical information stored in Kinship Family is used solely to provide the app's features. We do not sell your data and do not share it with third parties for advertising purposes.</p>
+    </div>
+    <p>By using Kinship Family you agree to the practices described in this policy. If you do not agree, please discontinue use and contact us to have your account deleted.</p>
+  </section>
+
+  <!-- 2. Data We Collect -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128230;</div>
+      <h2>Data We Collect</h2>
+    </div>
+
+    <h3>Account Information</h3>
+    <ul>
+      <li>Email address (used for authentication)</li>
+      <li>Display name (optional)</li>
+    </ul>
+
+    <h3>Family Health Data</h3>
+    <ul>
+      <li>Medical profile for each member: name, date of birth, blood type, medical history</li>
+      <li>Prescriptions and medication schedules</li>
+      <li>Lab results and medical documents (photos/files you voluntarily upload)</li>
+      <li>Conversation history with AI assistant Chip</li>
+      <li>Vital measurements you log: blood pressure, blood glucose, weight, heart rate</li>
+    </ul>
+
+    <h3>Technical Data</h3>
+    <ul>
+      <li>Push notification token (to deliver medication reminders)</li>
+      <li>Session token (automatically deleted on sign-out)</li>
+      <li>Anonymised crash reports via Sentry (no personally identifiable health information included)</li>
+    </ul>
+
+    <h3>Data We Do NOT Collect</h3>
+    <ul>
+      <li>Precise GPS location</li>
+      <li>Device contacts or call logs</li>
+      <li>Advertising identifiers</li>
+      <li>Payment information (the app is free)</li>
+    </ul>
+  </section>
+
+  <!-- 3. How We Use Data -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128295;</div>
+      <h2>How We Use Your Data</h2>
+    </div>
+    <ul>
+      <li><strong>Core features:</strong> medication reminders, treatment tracking, family health overview</li>
+      <li><strong>Chip AI assistant:</strong> personalised responses based on your family's profiles</li>
+      <li><strong>Push notifications:</strong> timely medication reminders according to your schedule</li>
+      <li><strong>App improvement:</strong> anonymised error analysis via Sentry (no Protected Health Information)</li>
+    </ul>
+    <div class="highlight">
+      <p>Chip AI is powered by Gemini 2.5 Flash (Google). Your questions are sent to Google's API for processing. Google does not use this data to train its models — see the <a href="https://ai.google.dev/terms" style="color:var(--blue)">Google AI Terms of Service</a>.</p>
+    </div>
+  </section>
+
+  <!-- 4. Data Security -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128274;</div>
+      <h2>Data Security</h2>
+    </div>
+    <ul>
+      <li><strong>Encryption in transit:</strong> HTTPS/TLS for all network connections</li>
+      <li><strong>Encryption at rest:</strong> PostgreSQL with Row Level Security (RLS) — each family can only access their own data</li>
+      <li><strong>Authentication:</strong> Supabase Auth with JWT tokens; passwords are never stored in plain text</li>
+      <li><strong>Infrastructure:</strong> Supabase (Singapore region) + Railway — both SOC 2 compliant</li>
+      <li><strong>No advertising SDKs:</strong> we do not integrate any third-party advertising or tracking libraries</li>
+    </ul>
+    <p>While we apply industry-standard safeguards, no system is completely immune to breaches. In the unlikely event of a security incident affecting your data, we will notify you within 72 hours by email.</p>
+  </section>
+
+  <!-- 5. Data Sharing -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#127758;</div>
+      <h2>Data Sharing</h2>
+    </div>
+    <p>We <strong>do not sell</strong> your data. Data is shared only with the following sub-processors, each bound by strict data processing agreements:</p>
+    <ul>
+      <li><strong>Supabase Inc.</strong> — database storage and authentication (Singapore)</li>
+      <li><strong>Google (Gemini API)</strong> — AI query processing (maximally anonymised)</li>
+      <li><strong>Railway</strong> — API server hosting</li>
+      <li><strong>Sentry</strong> — technical error monitoring (no Protected Health Information)</li>
+      <li><strong>Law enforcement / courts</strong> — only when required by a valid legal order</li>
+    </ul>
+    <p>We do not share data with advertisers, data brokers, or any party not listed above.</p>
+  </section>
+
+  <!-- 6. Your Rights -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128100;</div>
+      <h2>Your Rights</h2>
+    </div>
+    <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Access:</strong> view all your data within the app at any time</li>
+      <li><strong>Rectification:</strong> update profiles and medical information within the app</li>
+      <li><strong>Erasure:</strong> Settings &rarr; Account &rarr; Delete Account (processed within 30 days, in compliance with Apple App Store Guideline 5.1.1)</li>
+      <li><strong>Portability:</strong> contact us to receive a copy of your data in a machine-readable format</li>
+      <li><strong>Restriction / Objection:</strong> contact us at the email below to restrict specific processing</li>
+    </ul>
+    <div class="highlight">
+      <p>To exercise any right, email <a href="mailto:luongxuanhoa3011@gmail.com" style="color:var(--blue)">luongxuanhoa3011@gmail.com</a>. We respond within 48 business hours.</p>
+    </div>
+  </section>
+
+  <!-- 7. Data Retention -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128336;</div>
+      <h2>Data Retention</h2>
+    </div>
+    <p>We retain your data for as long as your account is active. After you request account deletion:</p>
+    <ul>
+      <li>Active data is deleted within 30 days</li>
+      <li>Anonymised, aggregated analytics may be retained indefinitely</li>
+      <li>Backup copies are purged within 90 days of the deletion request</li>
+    </ul>
+  </section>
+
+  <!-- 8. Children -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128118;</div>
+      <h2>Children</h2>
+    </div>
+    <p>Kinship Family is rated 4+ on the App Store. The app allows adults to manage medical profiles for children in their family. Children do not create accounts directly — only adults (parents or guardians) register and manage data on their behalf.</p>
+    <p>We do not knowingly collect personal information directly from children under 13. If you believe a child has provided us with personal information without parental consent, please contact us immediately and we will delete it.</p>
+  </section>
+
+  <!-- 9. Policy Changes -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">&#128260;</div>
+      <h2>Policy Changes</h2>
+    </div>
+    <p>When this policy changes materially, we will notify you by email or in-app notification at least 7 days before the changes take effect. Continued use of the app after that date constitutes acceptance of the updated policy.</p>
+    <p>The current version of this policy is always available at <a href="https://chiphoc.com/en/privacy.html" style="color:var(--blue)">chiphoc.com/en/privacy.html</a>.</p>
+  </section>
+
+  <!-- 10. Contact -->
+  <div class="contact-card">
+    <h2>Privacy questions?</h2>
+    <p>We respond within 48 business hours</p>
+    <a href="support.html" class="btn btn-white">Submit a support request</a>
+    <a href="mailto:luongxuanhoa3011@gmail.com" class="btn btn-outline">Email directly</a>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Kinship Family &middot; <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="support.html">Support</a> &middot; <a href="../privacy.html">Tieng Viet</a></p>
+  <p style="margin-top:6px">Data controller: Luong Xuan Hoa &middot; luongxuanhoa3011@gmail.com</p>
+</footer>
+
+</body>
+</html>
