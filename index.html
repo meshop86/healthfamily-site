@@ -740,16 +740,23 @@
     .cta-desc  { font-size: 17px; color: rgba(255,255,255,.5); margin-bottom: 48px; max-width: 500px; margin-left: auto; margin-right: auto; }
 
     .store-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .store-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
     .store-btn {
       display: inline-flex; align-items: center; gap: 14px;
-      background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.14);
-      padding: 14px 28px; border-radius: 16px; text-decoration: none; color: #fff;
-      transition: all .25s; backdrop-filter: blur(10px);
+      background: #0a0a0a; border: 1px solid rgba(255,255,255,.1);
+      padding: 13px 22px; border-radius: 16px; text-decoration: none; color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,.45), 0 1px 3px rgba(0,0,0,.3);
+      transition: transform .35s cubic-bezier(.34,1.36,.64,1), box-shadow .3s ease, filter .2s;
+      min-width: 170px;
     }
-    .store-btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.28); transform: translateY(-3px); }
-    .store-btn-icon { font-size: 32px; }
-    .store-btn-text-sub  { font-size: 11px; opacity: .6; }
-    .store-btn-text-main { font-size: 16px; font-weight: 700; }
+    .store-btn.android { background: #0d1f0d; border-color: rgba(74,222,128,.15); }
+    .store-btn:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 20px 50px rgba(0,0,0,.55); filter: brightness(1.12); }
+    .store-btn.android:hover { box-shadow: 0 20px 50px rgba(0,0,0,.5), 0 0 40px rgba(74,222,128,.12); }
+    .store-btn-icon { width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .store-btn-icon svg { width: 28px; height: 28px; }
+    .store-btn-text { display: flex; flex-direction: column; gap: 1px; }
+    .store-btn-text-sub  { font-size: 10px; opacity: .6; letter-spacing: .4px; font-weight: 500; text-transform: uppercase; }
+    .store-btn-text-main { font-size: 17px; font-weight: 800; letter-spacing: -.4px; line-height: 1.1; }
 
     /* ─── FOOTER ─── */
     footer { background: var(--dark); padding: 60px 32px 32px; }
@@ -831,7 +838,7 @@
     <div>
       <div class="hero-badge reveal">
         <div class="hero-badge-dot"></div>
-        Có mặt trên App Store
+        iOS App Store · Android APK
       </div>
       <h1 class="hero-title reveal reveal-delay-1">
         Sức khoẻ gia đình<br>
@@ -841,8 +848,23 @@
         Quản lý thuốc, hồ sơ y tế, lịch khám cho cả gia đình — tất cả một nơi. Trợ lý AI Chip luôn sẵn sàng giải đáp mọi câu hỏi sức khoẻ.
       </p>
       <div class="hero-actions reveal reveal-delay-3">
-        <a href="https://apps.apple.com/app/id6765594444" class="btn-primary">
-          <span>🍎</span> Tải trên App Store
+        <a href="https://apps.apple.com/app/id6765594444" class="store-btn" target="_blank" rel="noopener" style="background:#000;border-color:rgba(0,0,0,.15);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.18)">
+          <div class="store-btn-icon">
+            <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          </div>
+          <div class="store-btn-text">
+            <span class="store-btn-text-sub">Tải trên</span>
+            <span class="store-btn-text-main">App Store</span>
+          </div>
+        </a>
+        <a href="https://github.com/meshop86/healthfamily-site/releases/download/v1.0.0/healthfamily.apk" class="store-btn android" style="box-shadow:0 4px 20px rgba(0,0,0,.18)">
+          <div class="store-btn-icon">
+            <svg viewBox="0 0 24 24" fill="#4ade80" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.3-.16-.66-.06-.84.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.64 5.67c-.18-.28-.57-.37-.86-.2-.28.18-.37.57-.2.86l1.84 3.15C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75zm10 0c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75z"/></svg>
+          </div>
+          <div class="store-btn-text">
+            <span class="store-btn-text-sub">Tải APK</span>
+            <span class="store-btn-text-main">Android</span>
+          </div>
         </a>
         <a href="#screenshots" class="btn-secondary">Xem giao diện →</a>
       </div>
@@ -1291,17 +1313,21 @@
     <p class="cta-desc reveal reveal-delay-1">Miễn phí hoàn toàn. Không quảng cáo. Không bán dữ liệu.</p>
     <div class="store-buttons reveal reveal-delay-2">
       <a href="https://apps.apple.com/app/id6765594444" class="store-btn" target="_blank" rel="noopener">
-        <div class="store-btn-icon">🍎</div>
-        <div>
-          <div class="store-btn-text-sub">Tải trên</div>
-          <div class="store-btn-text-main">App Store</div>
+        <div class="store-btn-icon">
+          <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        </div>
+        <div class="store-btn-text">
+          <span class="store-btn-text-sub">Tải trên</span>
+          <span class="store-btn-text-main">App Store</span>
         </div>
       </a>
-      <a href="https://github.com/meshop86/healthfamily-site/releases/download/v1.0.0/healthfamily.apk" class="store-btn" download>
-        <div class="store-btn-icon">🤖</div>
-        <div>
-          <div class="store-btn-text-sub">Tải APK</div>
-          <div class="store-btn-text-main">Android</div>
+      <a href="https://github.com/meshop86/healthfamily-site/releases/download/v1.0.0/healthfamily.apk" class="store-btn android">
+        <div class="store-btn-icon">
+          <svg viewBox="0 0 24 24" fill="#4ade80" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.3-.16-.66-.06-.84.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.64 5.67c-.18-.28-.57-.37-.86-.2-.28.18-.37.57-.2.86l1.84 3.15C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75zm10 0c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75z"/></svg>
+        </div>
+        <div class="store-btn-text">
+          <span class="store-btn-text-sub">Tải APK</span>
+          <span class="store-btn-text-main">Android</span>
         </div>
       </a>
     </div>
