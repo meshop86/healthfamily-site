@@ -758,6 +758,44 @@
     .store-btn-text-sub  { font-size: 10px; opacity: .6; letter-spacing: .4px; font-weight: 500; text-transform: uppercase; }
     .store-btn-text-main { font-size: 17px; font-weight: 800; letter-spacing: -.4px; line-height: 1.1; }
 
+    /* ─── MODALS ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.6); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: #fff; border-radius: 24px; padding: 36px 32px;
+      max-width: 420px; width: calc(100% - 48px);
+      box-shadow: 0 40px 100px rgba(0,0,0,.3);
+      transform: translateY(20px) scale(.97);
+      transition: transform .3s cubic-bezier(.34,1.36,.64,1);
+      position: relative;
+    }
+    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
+    .modal-close {
+      position: absolute; top: 16px; right: 18px;
+      background: #F1F5F9; border: none; border-radius: 50%;
+      width: 32px; height: 32px; cursor: pointer;
+      font-size: 16px; color: #64748B; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .modal-close:hover { background: #E2E8F0; }
+    .modal-title { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .modal-sub   { font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
+    .modal-dl-btns { display: flex; flex-direction: column; gap: 12px; }
+    .modal-dl-btns .store-btn { min-width: unset; width: 100%; justify-content: flex-start; padding: 16px 20px; border-radius: 14px; }
+    /* About modal */
+    .about-section { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #F1F5F9; }
+    .about-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .about-label { font-size: 11px; font-weight: 700; color: #94A3B8; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 8px; }
+    .about-value { font-size: 14px; color: var(--text); line-height: 1.6; }
+    .about-badge { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+    .about-chip  { background: #F1F5F9; color: #475569; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+
     /* ─── FOOTER ─── */
     footer { background: var(--dark); padding: 60px 32px 32px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
@@ -823,7 +861,7 @@
     <li><a href="#screenshots">Giao diện</a></li>
     <li><a href="#chip">Chip AI</a></li>
     <li><a href="#how">Cách dùng</a></li>
-    <li><a href="https://apps.apple.com/app/id6765594444" class="btn-nav">Tải ngay</a></li>
+    <li><a href="#" class="btn-nav" onclick="openModal('dl-modal');return false">Tải ngay</a></li>
   </ul>
 </nav>
 
@@ -1279,6 +1317,21 @@
           <span style="font-size:16px;flex-shrink:0">🔒</span>
           <span>Kết nối với <strong>iOS Medical ID</strong> — cứu hộ gọi người thân ngay từ màn khoá, không cần mật khẩu</span>
         </div>
+        <div style="margin-top:16px;background:#F0FDF4;border-radius:12px;padding:14px 16px;border-left:3px solid #10B981">
+          <div style="font-size:12px;font-weight:700;color:#065F46;letter-spacing:.5px;margin-bottom:8px">ANDROID — THÔNG TIN KHẨN CẤP</div>
+          <div style="font-size:13px;color:#047857;line-height:1.65;margin-bottom:8px">
+            Android cho phép lưu thông tin y tế hiển thị ngay trên màn khoá mà không cần mở điện thoại.<br>
+            Người cấp cứu bấm <strong>Gọi khẩn cấp</strong> → <strong>Thông tin khẩn cấp</strong> để xem ngay dị ứng, nhóm máu và số điện thoại người thân.
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#10B981;flex-wrap:wrap">
+            <span style="background:#DCFCE7;border-radius:6px;padding:3px 8px;font-weight:600">Màn khoá</span>
+            <span>›</span>
+            <span style="background:#DCFCE7;border-radius:6px;padding:3px 8px;font-weight:600">Gọi khẩn cấp</span>
+            <span>›</span>
+            <span style="background:#10B981;border-radius:6px;padding:3px 8px;font-weight:600;color:#fff">Thông tin khẩn cấp</span>
+          </div>
+          <div style="font-size:12px;color:#6EE7B7;margin-top:8px">Thiết lập: Cài đặt → Giới thiệu về điện thoại → Thông tin khẩn cấp</div>
+        </div>
       </div>
 
     </div>
@@ -1358,13 +1411,14 @@
         </div>
         <div class="footer-col">
           <h4>Pháp lý</h4>
-          <a href="privacy.html">Chính sách riêng tư</a>
-          <a href="support.html">Hỗ trợ & Điều khoản</a>
+          <a href="https://chiphoc.com/privacy.html">Chính sách riêng tư</a>
+          <a href="https://chiphoc.com/support.html">Hỗ trợ & Điều khoản</a>
+          <a href="#" onclick="openModal('about-modal');return false">Giới thiệu ứng dụng</a>
         </div>
         <div class="footer-col">
           <h4>Liên hệ</h4>
           <a href="mailto:luongxuanhoa3011@gmail.com">Email hỗ trợ</a>
-          <a href="support.html">Gửi yêu cầu</a>
+          <a href="https://chiphoc.com/support.html">Gửi yêu cầu</a>
         </div>
       </div>
     </div>
@@ -1375,7 +1429,79 @@
   </div>
 </footer>
 
+<!-- ── DOWNLOAD MODAL ── -->
+<div id="dl-modal" class="modal-overlay" onclick="if(event.target===this)closeModal('dl-modal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('dl-modal')">✕</button>
+    <div class="modal-title">Tải HealthFamily</div>
+    <div class="modal-sub">Chọn nền tảng phù hợp với thiết bị của bạn</div>
+    <div class="modal-dl-btns">
+      <a href="https://apps.apple.com/app/id6765594444" class="store-btn" target="_blank" rel="noopener" onclick="closeModal('dl-modal')">
+        <div class="store-btn-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg></div>
+        <div class="store-btn-text">
+          <span class="store-btn-text-sub">iPhone · iPad</span>
+          <span class="store-btn-text-main">App Store</span>
+        </div>
+      </a>
+      <a href="https://github.com/meshop86/healthfamily-site/releases/download/v1.0.0/healthfamily.apk" class="store-btn android">
+        <div class="store-btn-icon"><svg viewBox="0 0 24 24" fill="#4ade80"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.3-.16-.66-.06-.84.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.64 5.67c-.18-.28-.57-.37-.86-.2-.28.18-.37.57-.2.86l1.84 3.15C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75zm10 0c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75z"/></svg></div>
+        <div class="store-btn-text">
+          <span class="store-btn-text-sub">Android · APK trực tiếp</span>
+          <span class="store-btn-text-main">Android</span>
+        </div>
+      </a>
+    </div>
+    <p style="font-size:11px;color:#94A3B8;text-align:center;margin-top:16px">APK Android: bật "Cài từ nguồn không xác định" trong Cài đặt</p>
+  </div>
+</div>
+
+<!-- ── ABOUT MODAL ── -->
+<div id="about-modal" class="modal-overlay" onclick="if(event.target===this)closeModal('about-modal')">
+  <div class="modal-box" style="max-width:480px">
+    <button class="modal-close" onclick="closeModal('about-modal')">✕</button>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+      <img src="screenshots/icon.png" style="width:52px;height:52px;border-radius:14px">
+      <div>
+        <div style="font-size:20px;font-weight:800;color:var(--text)">HealthFamily</div>
+        <div style="font-size:13px;color:var(--muted)">Quản lý sức khoẻ gia đình thông minh</div>
+      </div>
+    </div>
+    <div class="about-section">
+      <div class="about-label">Phiên bản</div>
+      <div class="about-value">1.0.0 · iOS App Store · Android APK</div>
+    </div>
+    <div class="about-section">
+      <div class="about-label">Về ứng dụng</div>
+      <div class="about-value">HealthFamily giúp cả gia đình theo dõi sức khoẻ, quản lý thuốc, lưu hồ sơ y tế và nhận tư vấn từ trợ lý AI Chip. Dữ liệu mã hoá, không quảng cáo, không bán thông tin.</div>
+    </div>
+    <div class="about-section">
+      <div class="about-label">Công nghệ</div>
+      <div class="about-badge">
+        <span class="about-chip">React Native / Expo</span>
+        <span class="about-chip">Gemini 2.5 Flash</span>
+        <span class="about-chip">Supabase</span>
+        <span class="about-chip">Railway</span>
+      </div>
+    </div>
+    <div class="about-section">
+      <div class="about-label">Nhà phát triển</div>
+      <div class="about-value">Lương Xuân Hoà · <a href="mailto:luongxuanhoa3011@gmail.com" style="color:var(--blue)">luongxuanhoa3011@gmail.com</a></div>
+    </div>
+    <div class="about-section">
+      <div class="about-label">Pháp lý</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://chiphoc.com/privacy.html" style="color:var(--blue);font-size:14px">Chính sách riêng tư</a>
+        <a href="https://chiphoc.com/support.html" style="color:var(--blue);font-size:14px">Điều khoản sử dụng</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  function openModal(id)  { document.getElementById(id).classList.add('open');    document.body.style.overflow='hidden' }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow='' }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') { document.querySelectorAll('.modal-overlay.open').forEach(m=>{ m.classList.remove('open'); document.body.style.overflow='' }) } })
+
   // Scroll progress
   const bar = document.getElementById('progress-bar')
   const nav = document.getElementById('nav')
